@@ -1,3 +1,9 @@
+
+# from https://cran.r-project.org/web/packages/moments/index.html
+# Authors:	Lukasz Komsta, Frederick Novomestky
+# Licences
+
+
 "agostino.test" <-
 function (x, alternative=c("two.sided","less","greater"))
 {
