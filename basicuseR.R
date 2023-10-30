@@ -27,7 +27,7 @@ basic_summary <- function(data,na.rm=T) {
 
 
 # Function to generate basic summary statistics for a data frame
-basic_summary_df_no_na <- function(df) {
+basic_summary_df<- function(df) {
   # Filter only numeric columns
   numeric_cols <- sapply(df, is.numeric)
   numeric_df <- df[, numeric_cols]
