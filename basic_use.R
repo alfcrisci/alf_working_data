@@ -73,3 +73,17 @@ basic_summary_df<- function(df) {
 
   return(summary_stats)
 }
+
+basic_summary_df<- function(df) {
+  # Filter only numeric columns
+  numeric_cols <- sapply(df, is.numeric)
+  numeric_df <- df[, numeric_cols]
+
+  # Remove NAs from the numeric data frame
+  numeric_df <- na.omit(numeric_df)
+
+  # Calculate summary statistics
+  summary_stats <- extended_summary(numeric_df)
+
+  return(summary_stats)
+}
