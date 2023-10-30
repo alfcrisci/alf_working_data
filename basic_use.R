@@ -1,4 +1,4 @@
-basic_summary <- function(data,na.rm=T) {
+bas_summary <- function(data,na.rm=T) {
   # Calculate summary statistics
   mean_val <- mean(data)
   median_val <- median(data)
@@ -24,7 +24,7 @@ basic_summary <- function(data,na.rm=T) {
   return(summary_df)
 }
 
-extended_summary <- function(data) {
+ext_summary <- function(data) {
   # Calculate summary statistics
   mean_val <- mean(data, na.rm = TRUE)
   median_val <- median(data, na.rm = TRUE)
@@ -74,16 +74,14 @@ basic_summary_df<- function(df) {
   return(summary_stats)
 }
 
-basic_summary_df<- function(df) {
+ex_summary_df<- function(df) {
   # Filter only numeric columns
   numeric_cols <- sapply(df, is.numeric)
   numeric_df <- df[, numeric_cols]
 
-  # Remove NAs from the numeric data frame
-  numeric_df <- na.omit(numeric_df)
-
+  
   # Calculate summary statistics
-  summary_stats <- extended_summary(numeric_df)
+  summary_stats <- do.call("rbind",apply(numeric_df,2,ext_summary))
 
   return(summary_stats)
 }
